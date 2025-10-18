@@ -17,7 +17,7 @@ const app = Vue.createApp({
     },
     computed: {
         title() {
-            return `${this.brand} ${this.product}`;
+            return this.onSale ? `${this.brand} ${this.product}` : '';
         },
         image() {
             return this.variants[this.selectedVariant].image;
