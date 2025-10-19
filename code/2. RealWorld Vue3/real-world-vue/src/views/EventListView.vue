@@ -14,6 +14,14 @@ const hasNextPage = computed(() => {
   return page.value < totalPages
 })
 
+const arrPages = computed(() => {
+  const arr = [];
+  for (let i = 1; i < Math.ceil(totalEvent.value / 2); i ++) {
+    arr.push(i)
+  }
+  return arr
+})
+
 onMounted(() => {
   watchEffect(() => {
     events.value = null;
@@ -41,6 +49,9 @@ onMounted(() => {
                    v-if="page != 1"
                    rel="prev">
         &#60; Prev
+      </router-link>
+      <router-link v-for="(numb,index) in arrPages" :key="index"
+                   :to="{name:'event-list',query:{page:index+1}}" rel="index+1">{{index + 1}}
       </router-link>
       <router-link :to="{ name:'event-list', query:{page:page + 1 }}"
                    v-if="hasNextPage"
