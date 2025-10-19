@@ -6,4 +6,4 @@ Course progress from Vue Master
 
 Resources:
 2. Real Life Vue:
-- 1. https://my-json-server.typicode.com/Code-Pop/Real-World_Vue-3/events 
+- https://my-json-server.typicode.com/Code-Pop/Real-World_Vue-3/events 
