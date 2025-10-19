@@ -11,9 +11,9 @@ app.component('product-display', {
                 <p v-if="inventory > 10">In Stock</p>
                 <p v-else-if="inventory <= 10 && inventory > 0">Almost sold</p>
                 <p v-else>Out of Stock</p>
-                
-                <p>Shipping: {{shipping}}</p>
-                
+
+                <p>Shipping: {{ shipping }}</p>
+
                 <p v-if="onSale">onSale</p>
                 <ul>
                   <li v-for="detail in details">{{ detail }}</li>
@@ -64,7 +64,7 @@ app.component('product-display', {
         inStock() {
             return this.variants[this.selectedVariant].quantity;
         },
-        shipping(){
+        shipping() {
             if (this.premium) {
                 return 'Free';
             }
@@ -74,7 +74,7 @@ app.component('product-display', {
     },
     methods: {
         addToCart() {
-            this.cart += 1
+            this.$emit('add-to-cart', this.variants[this.selectedVariant].id);
         },
         updateVariant(index) {
             this.selectedVariant = index;
