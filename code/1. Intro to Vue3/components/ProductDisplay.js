@@ -29,6 +29,9 @@ app.component('product-display', {
                         :class="{disabledButton: !inStock}"
                         class="button" @click="addToCart">Add to Cart
                 </button>
+                <button class="button" @click="decrementFromCart">
+                  Decrement
+                </button>
               </div>
             </div>
           </div>
@@ -80,7 +83,7 @@ app.component('product-display', {
             this.selectedVariant = index;
         },
         decrementFromCart() {
-            this.cart -= 1;
+            this.$emit('decrement-from-cart', this.variants[this.selectedVariant].id);
         },
     }
 
