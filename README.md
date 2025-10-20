@@ -5,6 +5,8 @@ Course progress from Vue Mastery
 2. [Real Life Vue (Composition API)](https://www.vuemastery.com/courses/real-world-vue-3-composition-api/building-a-vue-3-app-composition-api)
 3. [Touring vue router (Composition API)](https://www.vuemastery.com/courses/touring-vue-router-composition-api/introduction-composition-api)
 4. [Pinia Fundamentals](https://www.vuemastery.com/courses/pinia-fundamentals/fundamentals-what-is-pinia)
+5. [Intro to Vue 3 + TypeScript](https://www.vuemastery.com/courses/vue3-typescript/why-vue-and-typescript)
+6. [Lightning Fast Builds w/ Vite](https://www.vuemastery.com/courses/lightning-fast-builds-with-vite/intro-to-vite)
 
 Resources:
 2. Real Life Vue:
