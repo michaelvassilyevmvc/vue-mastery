@@ -1,6 +1,12 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import EventListView from '../views/EventListView.vue'
-import EventDetailView from '../views/EventDetails.vue'
+import EventLayout from '../views/event/Layout.vue'
+import EventDetails from '../views/event/Details.vue'
+import EventRegister from '../views/event/Register.vue'
+import EventEdit from '../views/event/Edit.vue'
+import NotFound from "@/views/NotFound.vue";
+import NetworkError from "@/views/NetworkError.vue";
+
 import AboutView from "@/views/AboutView.vue";
 
 const router = createRouter({
@@ -10,18 +16,58 @@ const router = createRouter({
       path: '/',
       name: 'event-list',
       component: EventListView,
+      props: route => ({page: parseInt(route.query.page) || 1})
     },
     {
-      path: '/event/:id',
-      name: 'event-details',
+      path: '/events/:id',
+      name: 'event-layout',
       props: true,
-      component: EventDetailView,
+      component: EventLayout,
+      children: [
+        {
+          path: '',
+          name: 'event-details',
+          component: EventDetails,
+        },
+        {
+          path: 'register',
+          name: 'event-register',
+          component: EventRegister,
+        },
+        {
+          path: 'edit',
+          name: 'event-edit',
+          component: EventEdit,
+        }
+      ]
+    },
+    {
+      path: '/event/:afterEvent(.*)',
+      redirect: to => {
+        return {path: '/events/' + to.params.afterEvent}
+      },
     },
     {
       path: '/about',
       name: 'about',
       component: AboutView,
     },
+    {
+      path: '/404/:resource',
+      name: '404Resource',
+      component: NotFound,
+      props: true
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'NotFound',
+      component: NotFound
+    },
+    {
+      path: '/network-error',
+      name: 'NetworkError',
+      component: NetworkError
+    }
   ],
 })
 
