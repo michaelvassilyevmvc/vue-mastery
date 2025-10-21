@@ -1,3 +1,4 @@
+// eslint-disable no-undef
 import axios from 'axios'
 import { mount, flushPromises } from '@vue/test-utils'
 import PostCard from '@/components/PostCard.vue'
@@ -10,19 +11,13 @@ const mockPost = {
 }
 
 describe('Post Card Component', () => {
-  test('can fetch and display a post', async () => {
-    vi.spyOn(axios, "get").mockResolvedValueOnce({data: mockPost})
-    const wrapper = mount(PostCard)
-    expect(wrapper.html()).toContain('Loading...')
-    await flushPromises()
-    expect(wrapper.find('[data-testid="post-title"]').text()).toBe(mockPost.title)
-    expect(wrapper.find('[data-testid="post-body"]').text()).toBe(mockPost.body)
-  })
-  test('can display an error message if fetching a post fails',async () => {
-    vi.spyOn(axios, "get").mockRejectedValueOnce(new Error("Error occurred"))
-    const wrapper = mount(PostCard)
-    expect(wrapper.html()).toContain('Loading...')
-    await flushPromises()
-    expect(wrapper.find('[data-testid="error-message"]').text()).toBe('Error occurred')
+  test('created posts render correctly', () => {
+    const title = 'Test Post'
+    const body = 'test post body...'
+    const wrapper = mount(PostCard, {
+      props: { title, body }
+    })
+
+    expect(wrapper.html()).toMatchSnapshot()
   })
 })
