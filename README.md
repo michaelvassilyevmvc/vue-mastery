@@ -7,6 +7,7 @@ Course progress from Vue Mastery
 4. [Pinia Fundamentals](https://www.vuemastery.com/courses/pinia-fundamentals/fundamentals-what-is-pinia)
 5. [Intro to Vue 3 + TypeScript](https://www.vuemastery.com/courses/vue3-typescript/why-vue-and-typescript)
 6. [Lightning Fast Builds w/ Vite](https://www.vuemastery.com/courses/lightning-fast-builds-with-vite/intro-to-vite)
+7. [Quick Tests with Vitest](https://www.vuemastery.com/courses/quick-tests-with-vitest/intro-to-vitest)
 
 Resources:
 2. Real Life Vue:
